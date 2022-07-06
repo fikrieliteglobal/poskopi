@@ -89,7 +89,7 @@ include('../layouts/header.php');
                         <h3 class="card-title">Detail Penjualan</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered table-striped example1">
+                        <table class="table table-bordered example2">
                             <thead>
                                 <tr style="text-align: center;">
                                     <th width="5%">No</th>
@@ -128,14 +128,12 @@ include('../layouts/header.php');
                                         <?php $no++;
                                         $total = $total + $row['total_jual']; ?>
                                     <?php } ?>
-                                    <tr>
-                                        <?php $url = isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : ''; ?>
-                                        <td colspan="5"></td>
-                                        <td>Total</td>
-                                        <td><?= "Rp " . number_format($total, 2, ',', '.') ?></td>
-                                    </tr>
-                                <?php } ?>
                             </tbody>
+                            <tr>
+                                <td>Total</td>
+                                <td colspan="6"><?= "Rp " . number_format($total, 2, ',', '.') ?></td>
+                            </tr>
+                        <?php } ?>
                         </table>
                     </div>
                     <!-- /.card -->

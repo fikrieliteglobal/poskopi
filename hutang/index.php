@@ -84,9 +84,9 @@ $result = $conn->query($sql);
                         <h3 class="card-title">Detail Hutang</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered table-striped example1">
+                        <table class="table table-bordered table-hover example2">
                             <thead>
-                                <tr style="text-align: center;">
+                                <tr>
                                     <th width="5%">No</th>
                                     <th>Nama</th>
                                     <th>tanggal</th>
@@ -99,7 +99,7 @@ $result = $conn->query($sql);
                             <tbody>
                                 <?php if (!isset($_POST["nama_orang"])) { ?>
                                     <tr>
-                                        <td colspan="7" style="text-align: center;">Tidak ada data</td>
+                                        <td colspan="7">Tidak ada data</td>
                                     </tr>
                                 <?php } else { ?>
                                     <?php
@@ -122,19 +122,18 @@ $result = $conn->query($sql);
                                         <?php $no++;
                                         $total = $total + $row['total_jual']; ?>
                                     <?php } ?>
-                                    <tr>
-                                        <td colspan="4"></td>
-                                        <form action="function.php" method="POST">
-                                            <input type="hidden" name="tambah" value="0">
-                                            <input type="hidden" name="bayar" value="1">
-                                            <input type="hidden" name="nama_orang" value="<?= $_POST["nama_orang"]; ?>">
-                                            <td><button class="btn btn-danger btn-sm col-12" onclick="return confirm('Apakah yakin sudah dibayar ??')">Bayar</button></td>
-                                        </form>
-                                        <td>Total</td>
-                                        <td><?= "Rp " . number_format($total, 2, ',', '.') ?></td>
-                                    </tr>
                                 <?php } ?>
                             </tbody>
+                            <tr>
+                                <form action="function.php" method="POST">
+                                    <input type="hidden" name="tambah" value="0">
+                                    <input type="hidden" name="bayar" value="1">
+                                    <input type="hidden" name="nama_orang" value="<?= $_POST["nama_orang"]; ?>">
+                                    <td><button class="btn btn-danger btn-sm col-12" onclick="return confirm('Apakah yakin sudah dibayar ??')">Bayar</button></td>
+                                </form>
+                                <td>Total</td>
+                                <td colspan="5"><?= "Rp " . number_format($total, 2, ',', '.') ?></td>
+                            </tr>
                         </table>
                     </div>
                     <!-- /.card -->

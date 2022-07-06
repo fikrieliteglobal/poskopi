@@ -37,7 +37,7 @@ include('../layouts/header.php');
             $sql = "SELECT * FROM kategori_barang";
             $result = $conn->query($sql);
             ?>
-            <table class="table table-bordered table-striped example1">
+            <table class="table table-bordered table-hover example2">
                 <thead>
                     <tr>
                         <th width="5%">No</th>

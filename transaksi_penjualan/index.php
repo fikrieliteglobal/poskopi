@@ -46,7 +46,7 @@ $result_menu = mysqli_query($conn, $sql_menu);
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table class="table table-bordered table-striped example1">
+            <table class="table table-bordered table-hover example2">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -86,14 +86,9 @@ $result_menu = mysqli_query($conn, $sql_menu);
                     <?php } ?>
                 </tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td>Total</td>
                     <td><?= "Rp " . number_format($total['total'], 2, ',', '.'); ?></td>
-                    <td>
+                    <td colspan="6">
                         <form action="function.php" method="POST">
                             <input type="hidden" name="hapus" value="0">
                             <input type="hidden" name="tambah" value="0">
@@ -122,7 +117,7 @@ $result_menu = mysqli_query($conn, $sql_menu);
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table class="table table-bordered table-striped example1">
+            <table class="table table-bordered table-striped example2">
                 <thead>
                     <tr>
                         <th width="5%">No</th>

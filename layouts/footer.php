@@ -60,12 +60,14 @@ require('session.php');
 <script src="../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
   $(function() {
-    $(".example1").DataTable();
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
+    $(".example2").DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
     });
   });
 </script>
