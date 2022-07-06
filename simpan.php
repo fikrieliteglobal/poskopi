@@ -1,5 +1,5 @@
 <?php
-require("koneksi.php");
+$conn = mysqli_connect("localhost", "root", "", "pos");
 
 if ($_POST['simpan'] == 1) {
     $name = $_POST["nama"];
@@ -11,7 +11,9 @@ if ($_POST['simpan'] == 1) {
     $Total = $_POST["total"];
     $tanggal = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO transaksi_menu values('', '$name', '$Base', '$Additional', '$Additional2', '$Additional3', '$Topping', '$Total', '$tanggal')";
+    $name_aman = htmlspecialchars($name, ENT_QUOTES);
+
+    $sql = "INSERT INTO transaksi_menu values('', '$name_aman', '$Base', '$Additional', '$Additional2', '$Additional3', '$Topping', '$Total', '$tanggal')";
     $result = $conn->query($sql);
     if ($result = true) {
         $_SESSION['msg-success'] = true;
