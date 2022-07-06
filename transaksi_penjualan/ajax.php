@@ -1,13 +1,14 @@
 <?php
 
+require('../koneksi.php');
+
 //membuat koneksi ke database
-$koneksi = mysqli_connect("localhost", "root", "", "pos");
 
 //variabel nama yang dikirimkan form.php
 $id_barang = $_GET['id_barang'];
 
 //mengambil data
-$query = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang='$id_barang'");
+$query = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id_barang'");
 $barang = mysqli_fetch_array($query);
 $data = array(
     'harga_barang'      =>  @$barang['harga_barang']
