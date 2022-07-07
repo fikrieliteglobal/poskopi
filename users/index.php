@@ -1,5 +1,6 @@
 <?php
 require('../koneksi.php');
+require('../session.php');
 require('session.php');
 include('../layouts/header.php');
 ?>

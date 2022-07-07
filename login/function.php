@@ -1,5 +1,6 @@
 <?php
 include "../koneksi.php";
+require('../session.php');
 
 if ($_POST['sign_in'] == 1) {
     $username = $_POST['username'];

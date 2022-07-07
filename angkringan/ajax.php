@@ -1,4 +1,5 @@
 <?php
+require('../session.php');
 require('../koneksi.php');
 
 //membuat koneksi ke database

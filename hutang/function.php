@@ -1,5 +1,6 @@
 <?php
 require("../koneksi.php");
+require('../session.php');
 
 if ($_POST['tambah'] == 1) {
     $date = $_POST['date'];

@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "pos");
+require('koneksi.php');
 
 if ($_POST['simpan'] == 1) {
     $name = $_POST["nama"];
