@@ -131,8 +131,8 @@ include('../layouts/footer.php');
     $(function() {
         const ctx = document.getElementById('lineChart').getContext('2d');
         const labels = [<?php
+                        global $conn;
                         if (!isset($_POST['tanggal1'], $_POST['tanggal2'])) {
-                            $conn = mysqli_connect("localhost", "root", "", "pos");
                             $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM laporan_penjualan GROUP BY tanggal";
                             $result = $conn->query($sql);
                             foreach ($result as $row) {
@@ -141,7 +141,6 @@ include('../layouts/footer.php');
                         } else {
                             $tanggal1 = $_POST['tanggal1'];
                             $tanggal2 = $_POST['tanggal2'];
-                            $conn = mysqli_connect("localhost", "root", "", "pos");
                             $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM laporan_penjualan WHERE tanggal BETWEEN '$tanggal1' AND '$tanggal2' GROUP BY tanggal";
                             $result = $conn->query($sql);
                             foreach ($result as $row) {
@@ -160,8 +159,8 @@ include('../layouts/footer.php');
             datasets: [{
                 label: 'Penjualan',
                 data: [<?php
+                        global $conn;
                         if (!isset($_POST['tanggal1'], $_POST['tanggal2'])) {
-                            $conn = mysqli_connect("localhost", "root", "", "pos");
                             $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM laporan_penjualan GROUP BY tanggal";
                             $result = $conn->query($sql);
                             foreach ($result as $row) {
@@ -170,7 +169,6 @@ include('../layouts/footer.php');
                         } else {
                             $tanggal1 = $_POST['tanggal1'];
                             $tanggal2 = $_POST['tanggal2'];
-                            $conn = mysqli_connect("localhost", "root", "", "pos");
                             $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM laporan_penjualan WHERE tanggal BETWEEN '$tanggal1' AND '$tanggal2' GROUP BY tanggal";
                             $result = $conn->query($sql);
                             foreach ($result as $row) {
@@ -196,7 +194,7 @@ include('../layouts/footer.php');
     $(function() {
         const ctx = document.getElementById('angkringan').getContext('2d');
         const labels = [<?php
-                        $conn = mysqli_connect("localhost", "root", "", "pos");
+                        global $conn;
                         $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM angkringan GROUP BY tanggal";
                         $result = $conn->query($sql);
                         foreach ($result as $row) {
@@ -214,7 +212,7 @@ include('../layouts/footer.php');
             datasets: [{
                 label: 'Penjualan',
                 data: [<?php
-                        $conn = mysqli_connect("localhost", "root", "", "pos");
+                        global $conn;
                         $sql = "SELECT DAY(tanggal), sum(total_jual) AS hasil_penjualan FROM angkringan GROUP BY tanggal";
                         $result = $conn->query($sql);
                         foreach ($result as $row) {
