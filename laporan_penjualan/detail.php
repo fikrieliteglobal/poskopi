@@ -9,6 +9,9 @@ $tanggal = $_POST['tanggal'];
 $sql = "SELECT * FROM laporan_penjualan AS a INNER JOIN barang AS b ON a.id_barang = b.id_barang WHERE tanggal = '$tanggal'";
 $result = $conn->query($sql);
 
+$sql2 = "SELECT SUM(total_jual) as total from laporan_penjualan WHERE tanggal = '$tanggal'";
+$query = mysqli_query($conn, $sql2);
+$total = mysqli_fetch_array($query);
 ?>
 
 
@@ -56,18 +59,21 @@ $result = $conn->query($sql);
                     <?php foreach ($result as $row) {  ?>
                         <tr>
                             <td><?= $no; ?></td>
-                            <td><?= $row['nama']; ?></td>
+                            <td><?= $row['nama_orang']; ?></td>
                             <td><?= $row['tanggal']; ?></td>
-                            <td><?= $row['base']; ?></td>
-                            <td><?= $row['additional']; ?></td>
-                            <td><?= $row['additional2']; ?></td>
-                            <td><?= $row['additional3']; ?></td>
-                            <td><?= $row['topping']; ?></td>
-                            <td><?= $row['total']; ?></td>
+                            <td><?= $row['nama_barang']; ?></td>
+                            <td><?= "Rp " . number_format($row['harga_barang'], 2, ',', '.'); ?></td>
+                            <td><?= $row['satuan']; ?></td>
+                            <td><?= "Rp " . number_format($row['total_jual'], 2, ',', '.'); ?></td>
                         </tr>
                         <?php $no++; ?>
                     <?php } ?>
                 </tbody>
+                <tr>
+                    <td>Total</td>
+                    <td><?= "Rp " . number_format($total['total'], 2, ',', '.'); ?></td>
+                    <td colspan="6"></td>
+                </tr>
             </table>
         </div>
         <!-- /.card-body -->

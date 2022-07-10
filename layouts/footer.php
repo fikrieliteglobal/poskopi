@@ -1,8 +1,5 @@
 </div>
 
-<?php
-require('session.php');
-?>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

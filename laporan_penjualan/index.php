@@ -40,7 +40,7 @@ $result2 = $conn->query($sql2);
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table class="table table-bordered table-striped example1">
+            <table class="table table-bordered table-striped example2">
                 <thead>
                     <tr style="text-align: center;">
                         <th width="5%">No</th>
