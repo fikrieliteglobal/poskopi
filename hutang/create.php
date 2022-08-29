@@ -41,13 +41,7 @@ $result = $conn->query($sql);
                 </div>
                 <div class="form-group">
                     <label for="nama_orang">Nama Orang</label>
-                    <select class="form-control" name="nama_orang" id="nama_orang" required>
-                        <option value="">--Pilih Nama--</option>
-                        <option name="nama_orang" value="Mas Ryan">Mas Ryan</option>
-                        <option name="nama_orang" value="Alex">Alex</option>
-                        <option name="nama_orang" value="Maman">Maman</option>
-                        <option name="nama_orang" value="Mas Udin">Mas Udin</option>
-                    </select>
+                    <input type="text" class="form-control" name="nama_orang" id="nama_orang" required>
                 </div>
                 <div class="form-group">
                     <label for="id_barang">Nama Produk</label><br>
